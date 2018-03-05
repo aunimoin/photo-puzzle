@@ -1,0 +1,51 @@
+body {
+  background: url("https://i.imgur.com/LVZvOvD.jpg");
+  text-align: center;
+  color: white;
+  /*background-position: center;*/
+  background-size: cover;
+  /*background-repeat: no-repeat;*/
+  font-family: "Raleway", sans-serif;
+}
+
+/*div holding both photos*/
+.bothPhotos {
+  width: 550px;
+  height: 320px;
+  margin: 0 auto;
+}
+/*Fragmented photos on left*/
+.fragContainer {
+  width: 316px;
+  height: 316px;
+  /*border: 1px solid grey;*/
+  display: inline-block;
+}
+/*Solution photo on right*/
+.photoContainer {
+  width: 155px;
+  height: 155px;
+  margin: 70px;
+  display: inline-block;
+  background-size: cover;
+}
+.frag {
+  width: 100px;
+  height: 100px;
+  margin: 1.3px;
+  display: inline-block;
+  background-size: cover;
+}
+.button {
+  background-color: #4caf50;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  /*display: inline-block;*/
+  font-size: 16px;
+  /*margin: 4px 2px;*/
+  cursor: pointer;
+}

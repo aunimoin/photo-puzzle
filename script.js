@@ -1,5 +1,28 @@
-// Extending the Array prototype to add the 'equals' method,
-// via stackoverflow http://bit.ly/2CZZgCF
+console.log("game1jscript.js linked");
+
+// <form class="form">
+//   Name: <input type="text" class="name">
+//   <button>Submit</button>
+// </form>
+var playerName = document.querySelector('.name');
+
+var form = document.querySelector('.form')
+form.addEventListener('submit', function(evt) {
+  evt.preventDefault();
+
+  // console.log(playerName.value);
+
+  $('.mainContainer').css("display", "block");
+
+  $('.form').css("display", "none");
+
+});
+
+
+
+// Extending the Array prototype to add the 'equals' method, which
+// we used at the end to check for win.
+// (via stackoverflow http://bit.ly/2CZZgCF)
 Array.prototype.equals = function(array) {
   // if the other array is a falsy value, return
   if (!array) return false;
@@ -15,12 +38,11 @@ Array.prototype.equals = function(array) {
     } else if (this[i] != array[i]) {
       // Warning - two different object instances will never be equal: {x:20} != {x:20}
       return false;
-    }
-  }
+    };
+  };
   return true;
 };
 
-// console.log("game1jscript.js linked");
 const img1 = "https://i.imgur.com/gMcoN9U.jpg";
 const img2 = "https://i.imgur.com/B6hstja.jpg";
 const img3 = "https://i.imgur.com/bvma8eQ.jpg";
@@ -56,57 +78,50 @@ const images = {
   f9: img9
 };
 
-// Object to compare with correct order above for the checkWin function at the end.
 $(".photoContainer").css(
   "background-image",
   "url(https://i.imgur.com/mx4fmMk.jpg)"
 );
 // Create an imageUrls array with the keys from the "images" object
 let imageUrls = Object.values(images);
-// Randomize the imageUrls array of keysys in the images object. Used shuffle code from stackoverflow - http://bit.ly/2GTPZOA
+// Randomize the imageUrls array of keysys in the images object.
+// Used shuffle code from stackoverflow - http://bit.ly/2GTPZOA
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
     var temp = array[i];
     array[i] = array[j];
     array[j] = temp;
-  }
-}
+  };
+};
 shuffleArray(imageUrls);
 
 // Loop through the fragmented divs in the .html
 $(".frag").each(function(i) {
   let url = imageUrls[i];
-  let divId = $(this).attr("id");
+  // let divId = $(this).attr("id"); - NOT USED IN FINAL CODE
   // Set the temporary background for the fragmented divs
-  $(this).css("background-image", `url(${url})`); // jQuery .css doc
-
-  // imagesPlaced[url] = divId;
+  $(this).css("background-image", `url(${url})`);
+  // $(this).css("background-image", "url("+ url +")"); - SAME AS ABOVE LINE
 });
 // console.log(images);
 // console.log(imagesPlaced);
-// var imageToBeMoved;
-// var originalPhoto;
+
 var $firstImage = null;
 var $secondImage = null;
 
-// Loop through each div in Fragmented Container, and add the click event listener,
-//
+// Loop through each div in Fragmented Container, and add the click event listener.
 for (let i = 1; i < 10; i++) {
   $(`#f${i}`).click(function() {
-    console.log("you clicked this function");
+    // console.log("you clicked this function");
     if (!$firstImage) {
       $firstImage = $(this);
-      $firstImage.css("opacity", "0.3");
+      $firstImage.css("opacity", "0.4");
       $firstImageUrl = $firstImage.css("background-image");
     } else {
       $secondImage = $(this);
       $secondImageUrl = $secondImage.css("background-image");
       $firstImage.css("opacity", "1");
-
-      // Swap the div ids in the objects
-      // imagesPlaced[$firstImageUrl] = $secondImageDivId;
-      // imagesPlaced[$secondImageUrl] = $firstImageDivId;
 
       // Swap the images on the 2nd click
       $firstImage.css("background-image", $secondImageUrl);
@@ -117,29 +132,29 @@ for (let i = 1; i < 10; i++) {
       setTimeout(function() {
         checkWin(); // check for win
       }, 10);
-    }
+    };
   });
-}
+};
 // The function that checks for win after each image pairs are switched.
 
 // Fill imagesPlaced object with new keys/values of fragmented photos
 // Compare imagesPlaced object with images object
 
 function checkWin() {
+  console.log(playerName.value)
   let newImageOrder = [];
   $(".frag").each(function(i) {
-    let imagehtml = $(this).css("background-image"); // jQuery .css doc
+    let imagehtml = $(this).css("background-image");
     let imageUrl = imagehtml.substring(5, imagehtml.length - 2);
     // newImageOrder[`f${i + 1}`] = imageUrl;
     newImageOrder.push(imageUrl);
   });
   if (newImageOrder.equals(originalImageOrder)) {
-    alert("YAY! You solved the puzzle!");
-  }
-}
-
-// Check the items in the array to see if they match the win position
-// [ {1}, {2}, {3}, {4} ]
+    $('.message').html(`YAAAY! ${playerName.value} you won!`);
+    // $('.message').html('YAAAY! ' + playerName.value + ' you won!');
+    $('.mainContainer').css("display", "none");
+  };
+};
 
 // BONUS (didn't get to)
 // Initial alert mentions the instructions of the game and asks for the

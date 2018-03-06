@@ -1,16 +1,28 @@
+/* Main background image */
 body {
   background: url("https://i.imgur.com/LVZvOvD.jpg");
   text-align: center;
   color: white;
-  /*background-position: center;*/
   background-size: cover;
-  /*background-repeat: no-repeat;*/
   font-family: "Raleway", sans-serif;
 }
 
+.mainContainer {
+  display: none;
+}
+.form {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  font-size: 20px;
+}
+.message {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  font-size: 20px;
+}
 /*div holding both photos*/
 .bothPhotos {
-  width: 550px;
+  width: 510px;
   height: 320px;
   margin: 0 auto;
 }
@@ -44,8 +56,6 @@ body {
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  /*display: inline-block;*/
   font-size: 16px;
-  /*margin: 4px 2px;*/
   cursor: pointer;
 }

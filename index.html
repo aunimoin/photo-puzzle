@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<!--   -->
+
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Auni's Project 1</title>
-    <link rel="stylesheet" href="game1style.css">
+    <title>Auni's Photo Puzzle</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   </head>
+  <!-- <body onload= "initialPrompt()"> -->
   <body>
-  <h1>Auni's Photo Puzzle</h1>
-  <p>(click on the photos to switch them around.)</p>
+
+  <form class="form">
+    Add your name to start the game: <input type="text" class="name">
+    <button class= "button">Submit</button>
+  </form>
+  <div class = "message"></div>
+
+  <div class= "mainContainer" >
+  <h1>Photo Puzzle</h1>
+  <p>(Click on the photos to switch them around.)</p>
+
+  <div class = "message"></div>
   <div class= "bothPhotos">
   <!-- Fragmented Container -->
   <div class = "fragContainer" >
@@ -33,6 +44,8 @@
 
   <button class= "button" onClick="window.location.reload()">Restart Puzzle!</button>
   <h4>*hint</h4>
+  </div>
+
   </body>
 
   <script
@@ -40,6 +53,6 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=
   "crossorigin="anonymous"></script>
 
-  <script src= "game1script.js" ></script>
+  <script src= "script.js" ></script>
 
 </html>

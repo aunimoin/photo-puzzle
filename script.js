@@ -1,25 +1,17 @@
 console.log("game1jscript.js linked");
 
-// <form class="form">
-//   Name: <input type="text" class="name">
-//   <button>Submit</button>
-// </form>
-var playerName = document.querySelector('.name');
+var playerName = document.querySelector(".name");
 
-var form = document.querySelector('.form')
-form.addEventListener('submit', function(evt) {
+var form = document.querySelector(".form");
+form.addEventListener("submit", function(evt) {
   evt.preventDefault();
 
   // console.log(playerName.value);
 
-  $('.mainContainer').css("display", "block");
+  $(".mainContainer").css("display", "block");
 
-  $('.form').css("display", "none");
-
+  $(".form").css("display", "none");
 });
-
-
-
 // Extending the Array prototype to add the 'equals' method, which
 // we used at the end to check for win.
 // (via stackoverflow http://bit.ly/2CZZgCF)
@@ -38,8 +30,8 @@ Array.prototype.equals = function(array) {
     } else if (this[i] != array[i]) {
       // Warning - two different object instances will never be equal: {x:20} != {x:20}
       return false;
-    };
-  };
+    }
+  }
   return true;
 };
 
@@ -92,8 +84,8 @@ function shuffleArray(array) {
     var temp = array[i];
     array[i] = array[j];
     array[j] = temp;
-  };
-};
+  }
+}
 shuffleArray(imageUrls);
 
 // Loop through the fragmented divs in the .html
@@ -132,16 +124,16 @@ for (let i = 1; i < 10; i++) {
       setTimeout(function() {
         checkWin(); // check for win
       }, 10);
-    };
+    }
   });
-};
+}
 // The function that checks for win after each image pairs are switched.
 
 // Fill imagesPlaced object with new keys/values of fragmented photos
 // Compare imagesPlaced object with images object
 
 function checkWin() {
-  console.log(playerName.value)
+  console.log(playerName.value);
   let newImageOrder = [];
   $(".frag").each(function(i) {
     let imagehtml = $(this).css("background-image");
@@ -150,11 +142,12 @@ function checkWin() {
     newImageOrder.push(imageUrl);
   });
   if (newImageOrder.equals(originalImageOrder)) {
-    $('.message').html(`YAAAY! ${playerName.value} you won!`);
+    $(".message").html(`YAAAY! ${playerName.value} , you won!`);
+    // $('.message').css("display", "block");
     // $('.message').html('YAAAY! ' + playerName.value + ' you won!');
-    $('.mainContainer').css("display", "none");
-  };
-};
+    // $('.mainContainer').css("display", "none");
+  }
+}
 
 // BONUS (didn't get to)
 // Initial alert mentions the instructions of the game and asks for the

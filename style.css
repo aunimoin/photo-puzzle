@@ -9,16 +9,18 @@ body {
 
 .mainContainer {
   display: none;
+  display: flex;
 }
 .form {
   font-family: "Raleway", sans-serif;
   text-align: center;
   font-size: 20px;
+  display: flex;
 }
 .message {
   font-family: "Raleway", sans-serif;
   text-align: center;
-  font-size: 20px;
+  font-size: 50px;
 }
 /*div holding both photos*/
 .bothPhotos {
